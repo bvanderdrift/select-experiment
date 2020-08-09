@@ -7,7 +7,7 @@ export interface ExperimentDataPoint {
 }
 
 // Side-effects EVERYWHERE!
-const filterByType = (
+export const filterByType = (
   data: ExperimentDataPoint[],
   selectionType: SelectionType
 ) => data.filter((thing) => thing.selectionType === selectionType);
