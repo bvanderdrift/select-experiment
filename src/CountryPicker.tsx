@@ -10,7 +10,7 @@ import "./CountryPicker.css";
 import Autocomplete from "react-autocomplete";
 
 // Fibbonacci sequence
-const countryCountOptions = [3, 5, 8, 13, 21, 34, 55];
+export const countryCountOptions = [3, 5, 8, 13, 21, 34, 55];
 
 export enum SelectionType {
   Autocomplete = "Autocomplete",
