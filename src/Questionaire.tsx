@@ -46,11 +46,6 @@ export const Questionaire = () => {
     [entriesCollection, submittedAge]
   );
 
-  const resetQuestionairre = useCallback(() => {
-    setCurrentStage(Stages.Welcome);
-    setSubmittedAge(null);
-  }, []);
-
   const handleAgeSubmit = useCallback((age: number) => {
     setSubmittedAge(age);
     setCurrentStage(Stages.Country);
@@ -64,6 +59,6 @@ export const Questionaire = () => {
     case Stages.Country:
       return <CountryPicker onSubmit={submitResults} />;
     case Stages.Thanks:
-      return <Thanks onContinue={resetQuestionairre} />;
+      return <Thanks />;
   }
 };

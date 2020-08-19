@@ -1,12 +1,11 @@
 import React from "react";
 import { Button } from "react-bootstrap";
-import { IContinuableProps } from "./IContinuableProps";
 
-export const Thanks = ({ onContinue }: IContinuableProps) => (
+export const Thanks = () => (
   <div>
     <h2>Thanks</h2>
-    <Button variant="primary" className="mt-4" onClick={onContinue}>
-      Reset
+    <Button variant="primary" className="mt-4" onClick={() => window.close()}>
+      Close
     </Button>
   </div>
 );

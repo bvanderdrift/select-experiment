@@ -1,12 +1,7 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
 import { countryCountOptions, SelectionType } from "./CountryPicker";
-import {
-  filterByTypeCount,
-  getAverage,
-  ExperimentDataPoint,
-  filterByType,
-} from "./analysis";
+import { filterByTypeCount, getAverage, ExperimentDataPoint } from "./analysis";
 import { ChartDataSets } from "chart.js";
 import Color from "color";
 import { useResults } from "./useResults";
