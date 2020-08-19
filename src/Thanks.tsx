@@ -1,11 +1,10 @@
 import React from "react";
-import { Button } from "react-bootstrap";
 
-export const Thanks = () => (
+export const Thanks = ({ identifier }: { identifier: string }) => (
   <div>
     <h2>Thanks</h2>
-    <Button variant="primary" className="mt-4" onClick={() => window.close()}>
-      Close
-    </Button>
+    <p>
+      Please submit the following survey code: <b>{identifier}</b>
+    </p>
   </div>
 );

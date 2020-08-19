@@ -143,11 +143,11 @@ export const CountryPicker = ({
   const [isShowingSpinner, setIsShowingSpinner] = useState(false);
 
   const selectableCountries = useMemo(() => {
-    const tempCountries: Country[] = [{ name: "The Netherlands", code: "NL" }];
+    const tempCountries: Country[] = [{ name: "United States", code: "US" }];
 
     for (
       let index = 0;
-      index < optionCount - 1 /*B/c we always take Netherlands*/;
+      index < optionCount - 1 /*B/c we always take a guaranteed country*/;
       index++
     ) {
       let extraCountry: Country;

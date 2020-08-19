@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo } from "react";
+import React, { useState, useCallback, useMemo, useEffect } from "react";
 import { v4 as uuid } from "uuid";
 import { Welcome } from "./Welcome";
 import { AgePicker } from "./AgePicker";
@@ -16,11 +16,20 @@ enum Stages {
 export const Questionaire = () => {
   const [currentStage, setCurrentStage] = useState<Stages>(Stages.Welcome);
   const [submittedAge, setSubmittedAge] = useState<number | null>(null);
+  const [hasSubmitted, setHasSubmitted] = useState(false);
+
+  const identifier = useMemo(() => uuid(), []);
 
   const entriesCollection = useMemo(
     () => firestoreDatabase.collection("entry"),
     []
   );
+
+  useEffect(() => {
+    if (hasSubmitted && currentStage !== Stages.Thanks) {
+      setCurrentStage(Stages.Thanks);
+    }
+  }, [currentStage, hasSubmitted]);
 
   const submitResults = useCallback(
     async (
@@ -37,13 +46,14 @@ export const Questionaire = () => {
         optionCount,
       };
 
-      const newDoc = entriesCollection.doc(uuid());
+      const newDoc = entriesCollection.doc(identifier);
 
       await newDoc.set(submission);
 
+      setHasSubmitted(true);
       setCurrentStage(Stages.Thanks);
     },
-    [entriesCollection, submittedAge]
+    [entriesCollection, identifier, submittedAge]
   );
 
   const handleAgeSubmit = useCallback((age: number) => {
@@ -59,6 +69,6 @@ export const Questionaire = () => {
     case Stages.Country:
       return <CountryPicker onSubmit={submitResults} />;
     case Stages.Thanks:
-      return <Thanks />;
+      return <Thanks identifier={identifier.slice(0, 8)} />;
   }
 };
