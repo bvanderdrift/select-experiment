@@ -69,6 +69,10 @@ export const Questionaire = () => {
     case Stages.Country:
       return <CountryPicker onSubmit={submitResults} />;
     case Stages.Thanks:
-      return <Thanks identifier={identifier.slice(0, 8)} />;
+      return (
+        <Thanks
+          identifier={identifier.slice(0, 8)}
+        />
+      );
   }
 };
