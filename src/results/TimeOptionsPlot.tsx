@@ -1,14 +1,18 @@
 import React from "react";
 import { Line } from "react-chartjs-2";
-import { countryCountOptions, SelectionType } from "./CountryPicker";
-import { filterByTypeCount, getAverage, ExperimentDataPoint } from "./analysis";
+import { countryCountOptions, SelectionType } from "../CountryPicker";
+import {
+  filterByTypeCount,
+  getAverage,
+  ExperimentDataPoint,
+} from "../analysis";
 import { ChartDataSets } from "chart.js";
 import Color from "color";
-import { useResults } from "./useResults";
+import { useResults } from "../useResults";
 
 // Consistent due to index-base. If any order of colors or selection type changes color assignments change too.
 // Colors sourced from https://coolors.co/264653-2a9d8f-e9c46a-f4a261-e76f51
-const chartColors = ["#2a9d8f", "#e9c46a", "#f4a261", "#e76f51"];
+export const chartColors = ["#2a9d8f", "#e9c46a", "#f4a261", "#e76f51"];
 
 const createSelectionTypeDataSet = (
   data: ExperimentDataPoint[],
@@ -23,7 +27,7 @@ const createSelectionTypeDataSet = (
   backgroundColor: Color(chartColors[selectionTypeIndex]).alpha(0.2).string(),
 });
 
-export const Results = () => {
+export const TimeOptionsPlot = () => {
   const data = useResults();
 
   return (
