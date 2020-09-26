@@ -1,23 +1,33 @@
 import React from "react";
 import { Questionaire } from "./Questionaire";
-import { TimeOptionsPlot } from "./results/TimeOptionsPlot";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { Lined } from "./results/Lined";
+import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
 import { AgeDistribution } from "./results/AgeDistribution";
-import { TimeDistribution } from "./results/TimeDistribution";
+import { Scattered } from "./results/Scattered";
+import { JSONed } from "./results/JSONed";
+import { AgeScattered } from "./results/AgeScattered";
 
 function App() {
   return (
     <BrowserRouter>
       <div className="fixed-top fixed-right fixed-bottom fixed-left d-flex justify-content-center align-items-start p-4 overflow-auto">
         <Switch>
-          <Route path="/results/time-options">
-            <TimeOptionsPlot />
-          </Route>
-          <Route path="/results/time-distribution">
-            <TimeDistribution />
-          </Route>
-          <Route path="/results/age-distribution">
-            <AgeDistribution />
+          <Route path="/results">
+            <Route path="/results/line">
+              <Lined />
+            </Route>
+            <Route path="/results/scatter">
+              <Scattered />
+            </Route>
+            <Route path="/results/age-scatter">
+              <AgeScattered />
+            </Route>
+            <Route path="/results/age-distribution">
+              <AgeDistribution />
+            </Route>
+            <Route path="/results/json">
+              <JSONed />
+            </Route>
           </Route>
           <Route>
             <Questionaire />

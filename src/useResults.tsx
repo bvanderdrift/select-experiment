@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { firestoreDatabase } from "./firebase";
 import { ExperimentDataPoint } from "./analysis";
+import cachedResults from "./results/cleaned-cached-json.json";
 
-export const useResults = () => {
+export const useResults = (useCache: boolean = true) => {
   const [results, setResults] = useState<ExperimentDataPoint[]>([]);
 
   useEffect(() => {
@@ -15,8 +16,13 @@ export const useResults = () => {
       setResults(data);
     };
 
-    fetchAndPrint();
-  }, []);
+    if (useCache) {
+      console.dir(cachedResults.length);
+      setResults(cachedResults as ExperimentDataPoint[]);
+    } else {
+      fetchAndPrint();
+    }
+  }, [useCache]);
 
   return results;
 };

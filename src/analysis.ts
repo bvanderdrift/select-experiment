@@ -1,9 +1,11 @@
 import { SelectionType } from "./CountryPicker";
 
 export interface ExperimentDataPoint {
+  age: number;
   selectionType: SelectionType;
   optionCount: number;
   selectionTime: number;
+  countryCode: string;
 }
 
 // Side-effects EVERYWHERE!

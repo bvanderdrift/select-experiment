@@ -27,7 +27,7 @@ const createSelectionTypeDataSet = (
   backgroundColor: Color(chartColors[selectionTypeIndex]).alpha(0.2).string(),
 });
 
-export const TimeOptionsPlot = () => {
+export const Lined = () => {
   const data = useResults();
 
   return (
