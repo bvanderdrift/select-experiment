@@ -17,7 +17,6 @@ export const useResults = (useCache: boolean = true) => {
     };
 
     if (useCache) {
-      console.dir(cachedResults.length);
       setResults(cachedResults as ExperimentDataPoint[]);
     } else {
       fetchAndPrint();

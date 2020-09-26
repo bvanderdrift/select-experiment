@@ -1,7 +1,7 @@
 import React from "react";
 import { Questionaire } from "./Questionaire";
 import { Lined } from "./results/Lined";
-import { BrowserRouter, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { AgeDistribution } from "./results/AgeDistribution";
 import { Scattered } from "./results/Scattered";
 import { JSONed } from "./results/JSONed";
