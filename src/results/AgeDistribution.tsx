@@ -4,7 +4,6 @@ import { ExperimentDataPoint } from "../analysis";
 // Source: https://www.census.gov/data/datasets/time-series/demo/popest/2010s-national-detail.html
 import usAgeBuckets from "./us-age-distribution.json";
 import { Bar } from "react-chartjs-2";
-import Color from "color";
 import { chartColors } from "./Lined";
 
 const AGE_BUCKET_SIZE = 5;
@@ -41,12 +40,12 @@ export const AgeDistribution = () => {
   const responseData = {
     label: "Responses",
     data: normalizeBuckets(filledBuckets),
-    backgroundColor: Color(chartColors[0]).string(),
+    backgroundColor: chartColors[0],
   };
   const usAgeData = {
     label: "US Age Distribution 2019",
     data: normalizeBuckets(usAgeBuckets).slice(0, bucketCount),
-    backgroundColor: Color(chartColors[2]).string(),
+    backgroundColor: chartColors[2],
   };
 
   const bucketLabels = new Array(bucketCount)

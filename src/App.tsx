@@ -1,11 +1,21 @@
 import React from "react";
 import { Questionaire } from "./Questionaire";
 import { Lined } from "./results/Lined";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { AgeDistribution } from "./results/AgeDistribution";
 import { Scattered } from "./results/Scattered";
 import { JSONed } from "./results/JSONed";
 import { AgeScattered } from "./results/AgeScattered";
+import { Countries } from "./results/Countries";
+import {
+  selectionTypeBreakdown,
+  scatterPlot,
+  ageScatter,
+  ageDistribution,
+  jsonPrint,
+  countryDistribution,
+  allRoutes,
+} from "./results/routes";
 
 function App() {
   return (
@@ -13,21 +23,38 @@ function App() {
       <div className="fixed-top fixed-right fixed-bottom fixed-left d-flex justify-content-center align-items-start p-4 overflow-auto">
         <Switch>
           <Route path="/results">
-            <Route path="/results/line">
-              <Lined />
-            </Route>
-            <Route path="/results/scatter">
-              <Scattered />
-            </Route>
-            <Route path="/results/age-scatter">
-              <AgeScattered />
-            </Route>
-            <Route path="/results/age-distribution">
-              <AgeDistribution />
-            </Route>
-            <Route path="/results/json">
-              <JSONed />
-            </Route>
+            <Switch>
+              <Route path={selectionTypeBreakdown.path}>
+                <Lined />
+              </Route>
+              <Route path={scatterPlot.path}>
+                <Scattered />
+              </Route>
+              <Route path={ageScatter.path}>
+                <AgeScattered />
+              </Route>
+              <Route path={ageDistribution.path}>
+                <AgeDistribution />
+              </Route>
+              <Route path={jsonPrint.path}>
+                <JSONed />
+              </Route>
+              <Route path={countryDistribution.path}>
+                <Countries />
+              </Route>
+              <Route>
+                <div>
+                  <h2>All Result Visualizations</h2>
+                  {allRoutes.map((route, index) => (
+                    <li key={index}>
+                      <a href={window.location.origin + route.path}>
+                        {route.name}
+                      </a>
+                    </li>
+                  ))}
+                </div>
+              </Route>
+            </Switch>
           </Route>
           <Route>
             <Questionaire />
