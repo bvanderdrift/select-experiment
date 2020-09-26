@@ -41,12 +41,12 @@ export const AgeDistribution = () => {
   const responseData = {
     label: "Responses",
     data: normalizeBuckets(filledBuckets),
-    backgroundColor: Color(chartColors[0]).alpha(0.2).string(),
+    backgroundColor: Color(chartColors[0]).string(),
   };
   const usAgeData = {
     label: "US Age Distribution 2019",
     data: normalizeBuckets(usAgeBuckets).slice(0, bucketCount),
-    backgroundColor: Color(chartColors[2]).alpha(0.2).string(),
+    backgroundColor: Color(chartColors[2]).string(),
   };
 
   const bucketLabels = new Array(bucketCount)
