@@ -37,6 +37,26 @@ export const Countries = () => {
           },
         ],
       }}
+      options={{
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                callback: (value: string) =>
+                  Math.floor(parseFloat(value) * 100) + "%",
+              },
+            },
+          ],
+          xAxes: [
+            {
+              scaleLabel: {
+                display: true,
+                labelString: "Country",
+              },
+            },
+          ],
+        },
+      }}
     />
   );
 };

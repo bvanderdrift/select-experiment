@@ -37,6 +37,26 @@ export const Scattered = () => {
       data={{
         datasets: chartData,
       }}
+      options={{
+        scales: {
+          yAxes: [
+            {
+              scaleLabel: {
+                display: true,
+                labelString: "in milliseconds",
+              },
+            },
+          ],
+          xAxes: [
+            {
+              scaleLabel: {
+                display: true,
+                labelString: "# of options",
+              },
+            },
+          ],
+        },
+      }}
     />
   );
 };

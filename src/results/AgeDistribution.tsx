@@ -61,6 +61,26 @@ export const AgeDistribution = () => {
         labels: bucketLabels,
         datasets: [responseData, usAgeData],
       }}
+      options={{
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                callback: (value: string) =>
+                  Math.floor(parseFloat(value) * 100) + "%",
+              },
+            },
+          ],
+          xAxes: [
+            {
+              scaleLabel: {
+                display: true,
+                labelString: "Age",
+              },
+            },
+          ],
+        },
+      }}
     />
   );
 };
