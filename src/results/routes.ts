@@ -34,7 +34,7 @@ export const countryDistribution: Route = {
 };
 
 export const jsonPrint: Route = {
-  name: "Results as JSON",
+  name: "Results as JSON (non-cleaned)",
   path: resultsRoot.path + "/json",
 };
 
